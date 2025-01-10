@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Page</title>
+  <link rel="stylesheet" href="{% static 'card_generator/style.css' %}"/>
+</head>
+<body>
+  <div class="mainscreen">
+    <div class="card">
+      <div class="leftside">
+        <img
+          src="https://i.ibb.co/SxW8fm6/Whats-App-Image-2025-01-06-at-00-36-16-cf77a710.jpg"
+          class="product"
+          alt="Shoes"
+        />
+      </div>
+      <div class="rightside">
+        <form action="">
+          <h1 style="color: black; text-align: center;">Show me Your Bounce</h1>
+          <h2 style="color: black;">Card Information</h2>
+          <p style="color: black;">Full Name:</p>
+          <input type="text" class="inputbox" name="name" required placeholder="Enter your Full Name" />
+          <p style="color: black;">Phone Number:</p>
+          <input type="tel" class="inputbox" name="phone_number" id="phone_number" required placeholder="Enter your phone number" />
+
+          <p style="color: black;">Card Type</p>
+          <select class="inputbox" name="card_type" id="card_type" required>
+            <option value="" style="color: black;">Select Dance Category</option>
+            <option value="Visa" style="color: black;">break Dance</option>
+            <option value="RuPay" style="color: black;">HipHop</option>
+          </select>
+          <div class="expcvv">
+            <p class="expcvv_text" style="color: black;">Date of Birth:</p>
+            <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
+            
+          </div>
+          <p></p>
+          <button type="submit" class="button">CheckOut</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
