@@ -18,24 +18,24 @@
         />
       </div>
       <div class="rightside">
-        <form action="">
+        <form action="{% url 'generate' %}" method="POST">
+          {% csrf_token %}
           <h1 style="color: black; text-align: center;">Show me Your Bounce</h1>
-          <h2 style="color: black;">Card Information</h2>
+          <h2 style="color: black;">Your Information</h2>
           <p style="color: black;">Full Name:</p>
-          <input type="text" class="inputbox" name="name" required placeholder="Enter your Full Name" />
+          <input type="text" class="inputbox" name="full_name" required placeholder="Enter your Full Name" />
           <p style="color: black;">Phone Number:</p>
           <input type="tel" class="inputbox" name="phone_number" id="phone_number" required placeholder="Enter your phone number" />
-
+        
           <p style="color: black;">Card Type</p>
-          <select class="inputbox" name="card_type" id="card_type" required>
+          <select class="inputbox" name="dance_category" id="card_type" required>
             <option value="" style="color: black;">Select Dance Category</option>
-            <option value="Visa" style="color: black;">break Dance</option>
-            <option value="RuPay" style="color: black;">HipHop</option>
+            <option value="Break Dance" style="color: black;">Break Dance</option>
+            <option value="HipHop" style="color: black;">HipHop</option>
           </select>
           <div class="expcvv">
             <p class="expcvv_text" style="color: black;">Date of Birth:</p>
-            <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
-            
+            <input type="date" class="inputbox" name="age" id="exp_date" required />
           </div>
           <p></p>
           <button type="submit" class="button">CheckOut</button>
