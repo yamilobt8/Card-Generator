@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout Page</title>
+  <title>Form Page</title>
   <link rel="stylesheet" href="{% static 'card_generator/style.css' %}"/>
 </head>
 <body>
@@ -14,11 +14,11 @@
         <img
           src="https://i.ibb.co/SxW8fm6/Whats-App-Image-2025-01-06-at-00-36-16-cf77a710.jpg"
           class="product"
-          alt="Shoes"
+          alt="card"
         />
       </div>
       <div class="rightside">
-        <form action="{% url 'generate' %}" method="POST">
+        <form method="POST" action="{% url 'generate' %}">
           {% csrf_token %}
           <h1 style="color: black; text-align: center;">Show me Your Bounce</h1>
           <h2 style="color: black;">Your Information</h2>
@@ -27,18 +27,16 @@
           <p style="color: black;">Phone Number:</p>
           <input type="tel" class="inputbox" name="phone_number" id="phone_number" required placeholder="Enter your phone number" />
         
-          <p style="color: black;">Card Type</p>
+          <p style="color: black;">Your Age:</p>
+          <input type="text" class="inputbox" name="age" id="age" required placeholder="Enter your Age" />
+          <p style="color: black;">Dance Category</p>
           <select class="inputbox" name="dance_category" id="card_type" required>
             <option value="" style="color: black;">Select Dance Category</option>
             <option value="Break Dance" style="color: black;">Break Dance</option>
             <option value="HipHop" style="color: black;">HipHop</option>
           </select>
-          <div class="expcvv">
-            <p class="expcvv_text" style="color: black;">Date of Birth:</p>
-            <input type="date" class="inputbox" name="age" id="exp_date" required />
-          </div>
           <p></p>
-          <button type="submit" class="button">CheckOut</button>
+          <button type="submit" class="button">Get Your Card</button>
         </form>
       </div>
     </div>

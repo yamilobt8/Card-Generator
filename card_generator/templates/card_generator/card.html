@@ -1,28 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generated</title>
+    <link rel="stylesheet" href="{% static 'card_generator/card.css' %}"/>
 </head>
 <body>
-{% if user %}
-  <div class="user-card">
-    <h2>User Information</h2>
     <div class="card">
-      <div class="card-header">
-        <img src="https://i.ibb.co/SxW8fm6/Whats-App-Image-2025-01-06-at-00-36-16-cf77a710.jpg" alt="User Profile Picture" class="profile-pic">
-        <h3>{{ user.full_name }}</h3>
-      </div>
-      <div class="card-body">
-        <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
-        <p><strong>Dance Category:</strong> {{ user.dance_category }}</p>
-        <p><strong>Age:</strong> {{ user.age }}</p>
-      </div>
+        <img src="{{ profile_picture_url }}" alt="Profile Picture">
+        <div class="card-info">
+            <h2>{{ username }}</h2>
+            <p class="phone">Phone: {{ phone }}</p>
+            <p class="email">Email: {{ email }}</p>
+            <p class="dance-type">Dance Type: {{ dance_type }}</p>
+            <button class="download-button" onclick="downloadCard()">Download Profile</button>
+        </div>
     </div>
-  </div>
-{% else %}
-  
-{% endif %}
 
+    <script>
+        function downloadCard() {
+            const element = document.createElement('a');
+            const content = document.documentElement.outerHTML;
+            const blob = new Blob([content], { type: 'text/html' });
+            element.href = URL.createObjectURL(blob);
+            element.download = '{{ username }}_profile_card.html';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
 </body>
 </html>
